@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <h1> Haiku Generator </h1>
+        </div>
+        <div id="navigation">
+            <ul>
+                <li>@Html.ActionLink("Homepage", "Index", "Home")</li>
+                <li>@Html.ActionLink("New", "NewHaiku", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+        </div>
+
+        @RenderBody()
+    </div>
+    <div id="push"></div>
+    <div id="footer">
+        <div id="footer_text">
+            <ul>
+                <li>Author</li>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @*<li>
+                    <a href="http://twitter.com/<twitterPage>">Twitter</a>
+                </li>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li>
+                    <a href="http://twitter.com/<fbPage>">FB</a>
+                </li>*@
+                <li>Contact</li>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

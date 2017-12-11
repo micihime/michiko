@@ -1,0 +1,48 @@
+﻿@model Haiku.BusinessLogic.Data.HaikuPoem
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.ModelID)
+        @Html.HiddenFor(model => model.FirstVerse)
+        @Html.HiddenFor(model => model.SecondVerse)
+        @Html.HiddenFor(model => model.ThirdVerse)
+        @Html.HiddenFor(model => model.NumberOfEvaluations)
+        @Html.HiddenFor(model => model.DateOfCreation)
+        <br>
+        <div id="haiku" style="text-align:center">
+            <p>Rate the poem with points in range from -3 (very bad, does not make sense at all) to 3 (great and inspiring).</p>
+            <p>
+                <h2>@Html.DisplayFor(model => model.FirstVerse)</h2>
+            </p>
+            <p>
+                <h2>@Html.DisplayFor(model => model.SecondVerse)</h2>
+            </p>
+            <p>
+                <h2>@Html.DisplayFor(model => model.ThirdVerse)</h2>
+            </p>
+            <br>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Evaluation, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Evaluation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
