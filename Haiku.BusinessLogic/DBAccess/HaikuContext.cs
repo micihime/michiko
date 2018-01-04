@@ -1,7 +1,6 @@
 ﻿using System.Data.Entity;
 
 using Haiku.BusinessLogic.Data;
-using System.Configuration;
 
 namespace Haiku.BusinessLogic.DBAccess
 {

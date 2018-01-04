@@ -1,8 +1,9 @@
-﻿using Haiku.BusinessLogic.Data.Enums;
-using Haiku.BusinessLogic.DBAccess;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using Haiku.BusinessLogic.Data.Enums;
+using Haiku.BusinessLogic.DBAccess;
 
 namespace Haiku.BusinessLogic.Data
 {

@@ -1,6 +1,7 @@
-﻿using Haiku.BusinessLogic.Data.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
+using Haiku.BusinessLogic.Data.Enums;
 
 namespace Haiku.BusinessLogic.Data
 {
