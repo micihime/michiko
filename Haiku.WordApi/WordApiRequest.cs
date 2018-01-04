@@ -3,14 +3,26 @@
 namespace Haiku.DataPreparation
 {
     /// <summary>
-    /// 
+    /// class representing word API request
     /// </summary>
     public static class WordApiRequest
     {
+        /// <summary>
+        /// The endpoint word
+        /// </summary>
         const string ENDPOINT_WORD = "https://wordsapiv1.p.mashape.com/words/";
 
+        /// <summary>
+        /// The get method
+        /// </summary>
         const string GET_METHOD = "GET";
+        /// <summary>
+        /// The content type
+        /// </summary>
         const string CONTENT_TYPE = "application/json";
+        /// <summary>
+        /// The mashape key
+        /// </summary>
         const string MASHAPE_KEY = "RGb2GatLjsmsh2QzXLHIf0cMaJnrp1gMuJCjsnlsS3dh3vUCji";
 
         /// <summary>

@@ -3,7 +3,7 @@
 namespace Haiku.DataPreparation.WordApiData
 {
     /// <summary>
-    /// class representing information about word,s syllables 
+    /// class representing information about word's syllables 
     /// </summary>
     public class Syllables
     {

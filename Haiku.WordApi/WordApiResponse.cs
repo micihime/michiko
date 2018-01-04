@@ -5,7 +5,7 @@ using System.Net;
 namespace Haiku.WordApi
 {
     /// <summary>
-    /// 
+    /// class representing word API response
     /// </summary>
     public static class WordApiResponse
     {

@@ -5,7 +5,7 @@ using Haiku.BusinessLogic.Data;
 namespace Haiku.BusinessLogic.DBAccess
 {
     /// <summary>
-    /// 
+    /// haiku database context
     /// </summary>
     public class HaikuContext : DbContext
     {
