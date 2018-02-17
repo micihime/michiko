@@ -22,11 +22,14 @@ namespace Haiku.Web.Controllers
             {
                 HaikuPoem haiku = new HaikuPoem();
                 haiku = HaikuGenerator.GenerateRandomHaiku();
-                return View(haiku);
+                if (haiku != null)
+                    return View(haiku);
+                else
+                    return View("Error");
             }
             catch (Exception e)
             {
-                return View("Index");
+                return View("Error");
             }
         }
 
@@ -42,11 +45,16 @@ namespace Haiku.Web.Controllers
             }
             catch (Exception e)
             {
-                return View("Index");
+                return View("Error");
             }
         }
 
-        public ActionResult About(HaikuPoem haiku)
+        public ActionResult AboutHaiku()
+        {
+            return View();
+        }
+
+        public ActionResult AboutResearch()
         {
             return View();
         }

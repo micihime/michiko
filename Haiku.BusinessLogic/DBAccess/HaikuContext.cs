@@ -9,8 +9,9 @@ namespace Haiku.BusinessLogic.DBAccess
     /// </summary>
     public class HaikuContext : DbContext
     {
-        private static string connectionString = "Server=tcp:mitchiehaiku.database.windows.net,1433;Initial Catalog=HaikuDb;Persist Security Info=False;User ID=mitchie;Password=Debilina123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
- 
+        private static string connectionString = "Server=tcp:haikuserver.database.windows.net,1433;Initial Catalog=haikuDb;Persist Security Info=False;User ID=haikuadmin;Password=Debilina123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        //private static string connectionString = "Data Source=MITCHIE\\SQLEXPRESS;Initial Catalog=Haiku;Persist Security Info=True;Integrated Security=True;Connection Timeout=30;";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HaikuContext"/> class.
         /// </summary>
@@ -39,6 +40,6 @@ namespace Haiku.BusinessLogic.DBAccess
         /// <value>
         /// The words.
         /// </value>
-        public DbSet<HaikuWord> Words { get; set; }
+        public DbSet<HaikuDBWord> Words { get; set; }
     }
 }

@@ -39,7 +39,7 @@ namespace Haiku.BusinessLogic.Data
 
         #region Fields
 
-        private string id;
+        private int id;
 
         private VerseModel firstVerseModel;
         private VerseModel secondVerseModel;
@@ -54,7 +54,7 @@ namespace Haiku.BusinessLogic.Data
         /// <value>
         /// The model identifier.
         /// </value>
-        public string ID
+        public int ID
         {
             get { return id; }
             set { id = value; }
@@ -104,6 +104,8 @@ namespace Haiku.BusinessLogic.Data
         /// </summary>
         public HaikuModel(HaikuDBModel dbModel)
         {
+            ID = dbModel.ID;
+
             List<PartOfSpeech> v1 = convertVerseModelString(dbModel.FirstVerseModel);
             List<PartOfSpeech> v2 = convertVerseModelString(dbModel.SecondVerseModel);
             List<PartOfSpeech> v3 = convertVerseModelString(dbModel.ThirdVerseModel);
@@ -140,19 +142,6 @@ namespace Haiku.BusinessLogic.Data
             else
                 return false;
         }
-
-        //private static bool IsValid(ExtractedHaikuModel model)
-        //{
-        //    if ((model.FirstVerseModel == null) || (model.SecondVerseModel == null) || (model.ThirdVerseModel == null))
-        //        return false;
-
-        //    if (((model.firstVerseModel.Count >= 2) && (model.firstVerseModel.Count <= 4)) &&
-        //        ((model.secondVerseModel.Count >= 3) && (model.secondVerseModel.Count <= 5)) &&
-        //        ((model.thirdVerseModel.Count >= 2) && (model.thirdVerseModel.Count <= 4)))
-        //        return true;
-        //    else
-        //        return false;
-        //}
         #endregion
 
         #region Private Methods
@@ -164,12 +153,24 @@ namespace Haiku.BusinessLogic.Data
         /// <returns></returns>
         private List<PartOfSpeech> convertVerseModelString(string stringModel)
         {
+            //VERSE MODEL IN DB: 1-2-3
+            //List<PartOfSpeech> model = new List<PartOfSpeech>();
+            //List<string> listOfStrings = stringModel.Split('-').ToList();
+            //List<int> listOfInts = listOfStrings.Select(q => Convert.ToInt32(q)).ToList();
+            //foreach (int item in listOfInts)
+            //{
+            //    model.Add((PartOfSpeech)item);
+            //}
+            //return model;
+
+            //VERSE MODEL IN DB: ADJECTIVE NOUN VERB
             List<PartOfSpeech> model = new List<PartOfSpeech>();
-            List<string> listOfStrings = stringModel.Split('-').ToList();
-            List<int> listOfInts = listOfStrings.Select(q => Convert.ToInt32(q)).ToList();
-            foreach (int item in listOfInts)
+            List<string> listOfStrings = stringModel.Split(' ').ToList();
+            //List<int> listOfInts = listOfStrings.Select(q => Convert.ToInt32(q)).ToList();
+            foreach (string item in listOfStrings)
             {
-                model.Add((PartOfSpeech)item);
+                PartOfSpeech itemPartOfSpeech = PartOfSpeechHelper.DeterminePartOfSpeechFromString(item);
+                model.Add(itemPartOfSpeech);
             }
             return model;
         }

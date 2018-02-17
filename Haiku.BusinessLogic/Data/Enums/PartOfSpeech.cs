@@ -59,5 +59,30 @@
         /// numeral
         /// </summary>
         NUMERAL
+
+
+    }
+
+    public static class PartOfSpeechHelper
+    {
+        public static PartOfSpeech DeterminePartOfSpeechFromString(string item)
+        {
+            if (item == null)
+                return PartOfSpeech.NONE;
+            switch (item.ToUpper())
+            {
+                case "ADJECTIVE": return PartOfSpeech.ADJECTIVE;
+                case "NOUN": return PartOfSpeech.NOUN;
+                case "PRONOUN": return PartOfSpeech.PRONOUN;
+                case "VERB": return PartOfSpeech.VERB;
+                case "ADVERB": return PartOfSpeech.ADVERB;
+                case "NUMERAL": return PartOfSpeech.NUMERAL;
+                case "PREPOSITION": return PartOfSpeech.PREPOSITION;
+                case "CONJUNCTION": return PartOfSpeech.CONJUNCTION;
+                case "DEFINITE_ARTICLE": return PartOfSpeech.DEFINITE_ARTICLE;
+                case "INDEFINITE_ARTICLE": return PartOfSpeech.INDEFINITE_ARTICLE;
+                default: return PartOfSpeech.NONE;
+            }
+        }
     }
 }

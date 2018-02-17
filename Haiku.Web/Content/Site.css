@@ -179,8 +179,9 @@ body,html
 
 #footer, #push
 {
-	height: 10px;
+	height: auto;
 }
+
 #footer 
 {
 	margin: 0 auto;
@@ -189,6 +190,8 @@ body,html
 	line-height: 30px;
 	text-align: center;
 	color:white;
+    overflow:hidden;
+
 }
 #footer_text
 {	

@@ -36,6 +36,9 @@ namespace Haiku.BusinessLogic
         {
             try
             {
+                if ((dictionary == null) || (modelList == null))
+                    return null;
+
                 Random random = new Random();
                 int modelNr = random.Next(0, modelList.Count);
                 HaikuModel model = new HaikuModel(modelList[modelNr]);

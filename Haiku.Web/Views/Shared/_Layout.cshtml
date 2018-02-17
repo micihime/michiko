@@ -18,15 +18,16 @@
         <div id="navigation">
             <ul>
                 <li>@Html.ActionLink("Homepage", "Index", "Home")</li>
-                <li>@Html.ActionLink("New", "NewHaiku", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("New Haiku", "NewHaiku", "Home")</li>
+                <li>@Html.ActionLink("What is Haiku", "AboutHaiku", "Home")</li>
+                @*<li>@Html.ActionLink("About Research", "AboutResearch", "Home")</li>*@
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
             </ul>
         </div>
 
         @RenderBody()
     </div>
-    <div id="push"></div>
+    @*<div id="push"></div>*@
     <div id="footer">
         <div id="footer_text">
             <ul>

@@ -25,7 +25,21 @@ namespace Haiku.BusinessLogic.DBAccess
                              orderby wordDBTable.ID
                              select wordDBTable;
 
-            return dictionary.ToList();
+            List<HaikuDBWord> dbWords = dictionary.ToList();
+
+            if (dbWords != null)
+            {
+                List<HaikuWord> words = new List<HaikuWord>();
+                foreach (var item in dbWords)
+                {
+                    HaikuWord word = item.ToHaikuWord();
+                    if (word.IsValid())
+                        words.Add(word);
+                }
+                return words;
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -39,7 +53,19 @@ namespace Haiku.BusinessLogic.DBAccess
                             orderby modelDBTable.ID
                             select modelDBTable;
 
-            return modelList.ToList();
+            return modelList.ToList(); //List<HaikuDBModel> dbModels = modelList.ToList();
+            //if (dbModels != null)
+            //{
+            //    List<HaikuModel> models = new List<HaikuModel>();
+            //    foreach (var item in dbModels)
+            //    {
+            //        HaikuModel model = item.ToHaikuModel();
+            //        models.Add(model);
+            //    }
+            //    return models;
+            //}
+
+            //return null;
         }
 
         /// <summary>
@@ -51,7 +77,7 @@ namespace Haiku.BusinessLogic.DBAccess
             db.Haikus.Add(haiku);
             db.SaveChanges();
         }
-        
+
         /// <summary>
         /// Gets the haiku with identifier.
         /// </summary>
@@ -60,8 +86,8 @@ namespace Haiku.BusinessLogic.DBAccess
         public static HaikuPoem GetHaikuWithId(int id)
         {
             var poems = from haikuDBTable in db.Haikus
-                         where haikuDBTable.ID == id
-                         select haikuDBTable;
+                        where haikuDBTable.ID == id
+                        select haikuDBTable;
 
             return poems.FirstOrDefault();
         }

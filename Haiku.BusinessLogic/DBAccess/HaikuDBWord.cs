@@ -1,24 +1,24 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using Haiku.BusinessLogic.Data;
 using Haiku.BusinessLogic.Data.Enums;
-using Haiku.BusinessLogic.DBAccess;
 
-namespace Haiku.BusinessLogic.Data
+namespace Haiku.BusinessLogic.DBAccess
 {
     /// <summary>
     /// Class that represents haiku-specific word
     /// </summary>
-    public class HaikuWord
+    [Table("HaikuWords")]
+    public class HaikuDBWord
     {
         #region Fields
-
+        
         private int id;
 
         private string wordString;
 
-        private PartOfSpeech partOfSpeech;
+        private string partOfSpeech;
 
         private Int16 numberOfSyllables;
         #endregion
@@ -50,7 +50,7 @@ namespace Haiku.BusinessLogic.Data
         /// <summary>
         /// The part of speech
         /// </summary>
-        public PartOfSpeech WordPartOfSpeech
+        public string WordPartOfSpeech
         {
             get { return partOfSpeech; }
             set { partOfSpeech = value; }
@@ -66,27 +66,27 @@ namespace Haiku.BusinessLogic.Data
         }
         #endregion
 
-        #region Constructor
-
-        //public HaikuWord(HaikuDBWord haikuDBWord)
-        //{
-        //    ID = haikuDBWord.ID;
-        //    WordString = haikuDBWord.WordString;
-        //    WordPartOfSpeech = PartOfSpeechHelper.DeterminePartOfSpeechFromString(haikuDBWord.WordPartOfSpeech);
-        //    NumberOfSyllables = haikuDBWord.NumberOfSyllables;
-        //}
-        #endregion
-
         #region Methods
 
-        public bool IsValid()
+        /// <summary>
+        /// To the haiku word.
+        /// </summary>
+        /// <returns></returns>
+        public HaikuWord ToHaikuWord()
         {
-            if (!String.IsNullOrEmpty(wordString) ||
-                (WordPartOfSpeech != PartOfSpeech.NONE) ||
-                (NumberOfSyllables > 0))
-                return true;
-            else
-                return false;
+            try
+            {
+                HaikuWord haikuWord = new HaikuWord();
+                haikuWord.ID = this.ID;
+                haikuWord.WordString = this.WordString;
+                haikuWord.WordPartOfSpeech = PartOfSpeechHelper.DeterminePartOfSpeechFromString(this.WordPartOfSpeech);
+                haikuWord.NumberOfSyllables = this.NumberOfSyllables;
+                return haikuWord;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
         #endregion
     }

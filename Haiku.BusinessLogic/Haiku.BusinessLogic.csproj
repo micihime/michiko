@@ -50,15 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Enums\HaikuSource.cs" />
     <Compile Include="Data\Enums\PartOfSpeech.cs" />
-    <Compile Include="Data\Enums\Sentiment.cs" />
     <Compile Include="Data\HaikuModel.cs" />
     <Compile Include="Data\HaikuPoem.cs" />
     <Compile Include="Data\VerseModel.cs" />
     <Compile Include="DBAccess\HaikuDBAccess.cs" />
     <Compile Include="DBAccess\HaikuContext.cs" />
     <Compile Include="DBAccess\HaikuDBModel.cs" />
+    <Compile Include="DBAccess\HaikuDBWord.cs" />
     <Compile Include="HaikuGenerator.cs" />
     <Compile Include="Data\HaikuWord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
